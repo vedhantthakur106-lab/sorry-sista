@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorry Sista. meoww    💛</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(135deg,#ffecd2,#fcb69f);
+      overflow:hidden;
+    }.page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hidden{
+  opacity:0;
+  pointer-events:none;
+  transform:scale(0.9);
+}
+
+.card{
+  background:#fff;
+  width:90%;
+  max-width:420px;
+  padding:2rem;
+  border-radius:24px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+  animation: pop 0.8s ease;
+}
+
+@keyframes pop{
+  from{transform:scale(0.7); opacity:0}
+  to{transform:scale(1); opacity:1}
+}
+
+h1{
+  font-size:1.8rem;
+  margin-bottom:0.5rem;
+}
+
+p{
+  font-size:1rem;
+  color:#555;
+  margin-bottom:1.5rem;
+}
+
+.heart{
+  font-size:3rem;
+  animation: beat 1s infinite;
+  margin-bottom:1rem;
+}
+
+@keyframes beat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.3)}
+}
+
+button{
+  padding:0.8rem 1.5rem;
+  border:none;
+  border-radius:30px;
+  font-size:1rem;
+  cursor:pointer;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  color:#fff;
+  transition:0.3s;
+  margin:0.4rem;
+}
+
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+}
+
+.msg{
+  margin-top:1.2rem;
+  font-size:0.95rem;
+  display:none;
+  animation: fade 0.6s ease forwards;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px)}
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* floating hearts */
+.float-heart{
+  position:absolute;
+  bottom:-20px;
+  font-size:20px;
+  animation: floatUp 5s linear infinite;
+  opacity:0.7;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0); opacity:1}
+  to{transform:translateY(-110vh); opacity:0}
+}
+
+@media (max-width:480px){
+  h1{font-size:1.5rem}
+  p{font-size:0.95rem}
+}
+
+  </style>
+</head>
+<body>  <!-- PAGE 1 -->  <div class="page" id="page1">
+    <div class="card">
+      <div class="heart">🐼</div>
+      <h1>Hey Sista…</h1>
+      <p>I know you're angry 😔 but you mean the world to me.</p>
+      <button onclick="showMsg()">Tap if you still love me</button>
+      <div class="msg" id="msg">
+        I’m really sorry 🫂<br />
+        Please smile a little for me 💫
+        hss de ree
+      </div>
+      <button onclick="goNext()">Next ➜</button>
+    </div>
+  </div>  <!-- PAGE 2 -->  <div class="page hidden" id="page2">
+    <div class="card">
+      <div class="heart">🌸</div>
+      <h1>One Last Thing…</h1>
+      <p>
+        No matter what happens,<br />
+        I’ll always be there for you 💖
+      </p>
+      <p style="font-size:0.9rem; color:#777">
+        You’re not just my sista,<br />
+        you’re my safe place ✨
+        sorry jii
+      </p>
+      <button onclick="goBack()">⬅ Back</button>
+    </div>
+  </div>  <script>
+    function showMsg(){
+      document.getElementById('msg').style.display = 'block';
+    }
+
+    function goNext(){
+      document.getElementById('page1').classList.add('hidden');
+      document.getElementById('page2').classList.remove('hidden');
+    }
+
+    function goBack(){
+      document.getElementById('page2').classList.add('hidden');
+      document.getElementById('page1').classList.remove('hidden');
+    }
+
+    // floating hearts
+    setInterval(()=>{
+      const h = document.createElement('div');
+      h.className = 'float-heart';
+      h.innerText = '😼♾️';
+      h.style.left = Math.random()*100 + 'vw';
+      h.style.animationDuration = (3 + Math.random()*3) + 's';
+      document.body.appendChild(h);
+      setTimeout(()=>h.remove(),6000);
+    },600);
+  </script></body>
+</html>
